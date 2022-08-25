@@ -1,0 +1,1072 @@
+%	-------------------------------------------------------------------------------
+% 
+% 
+% 
+%	\chapter{메뉴의 구성} 
+% 
+% 
+% 
+% 
+% 
+% 
+%	-------------------------------------------------------------------------------
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom	=10em}
+		\geometry{left		=5em}
+		\geometry{right		=5em}
+%		\geometry{left		=4em}
+%		\geometry{right		=4em}
+
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}					% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+
+		% ------------------------------ 수학 수식
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+			\usepackage{mathtools}				% amsmath 확장판
+
+			\usepackage{scrextend}				% 
+		
+
+		% ------------------------------ LIST
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tablists}				%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+			\usepackage{tabu}				%
+
+
+
+
+		% ------------------------------ 
+			\usepackage{setspace}			%
+			\usepackage{booktabs}		% table
+			\usepackage{color}			%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}	% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}		% pdf 사용
+			\usepackage{framed}			% pdf 사용
+
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+		%	=======================================================================================
+		% 	tikz package
+		% 	
+		% 	--------------------------------- 	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			\usetikzlibrary{mindmap}			
+			
+
+		% --------------------------------- 	page
+			\usepackage{afterpage}		% 다음페이지가 나온면 어떻게 하라는 명령 정의 패키지
+%			\usepackage{fullpage}			% 잘못 사용하면 다 흐트러짐 주의해서 사용
+%			\usepackage{pdflscape}		% 
+			\usepackage{lscape}			%	 
+
+
+			\usepackage{blindtext}
+	
+		% --------------------------------- font 사용
+			\usepackage{pifont}				%
+			\usepackage{textcomp}
+			\usepackage{gensymb}
+			\usepackage{marvosym}
+
+
+
+		% Package --------------------------------- 
+
+			\usepackage{tablists}				%
+
+
+		% Package --------------------------------- 
+			\usepackage[framemethod=TikZ]{mdframed}				% md framed package
+			\usepackage{smartdiagram}								% smart diagram package
+
+
+
+		% Package ---------------------------------    연습문제 
+
+			\usepackage{exsheets}				%
+
+			\SetupExSheets{solution/print=true}
+			\SetupExSheets{question/type=exam}
+			\SetupExSheets[points]{name=point,name-plural=points}
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar	{\Huge\bf}
+			\ChTitleVar		{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]	{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+		%	--------------------------------------------------------------------------------------- 
+		% 	tritlesec package
+		% 	
+		% 	
+		% 	------------------------------------------------------------------ section 스타일 지정
+	
+			\usepackage{titlesec}
+		
+		% 	----------------------------------------------------------------- section 글자 모양 설정
+			\titleformat*{\section}					{\large\bfseries}
+			\titleformat*{\subsection}				{\normalsize\bfseries}
+			\titleformat*{\subsubsection}			{\normalsize\bfseries}
+			\titleformat*{\paragraph}				{\normalsize\bfseries}
+			\titleformat*{\subparagraph}				{\normalsize\bfseries}
+	
+		% 	----------------------------------------------------------------- section 번호 설정
+			\renewcommand{\thepart}				{\arabic{part}.}
+			\renewcommand{\thesection}				{\arabic{section}.}
+			\renewcommand{\thesubsection}			{\thesection\arabic{subsection}.}
+			\renewcommand{\thesubsubsection}		{\thesubsection\arabic{subsubsection}}
+			\renewcommand\theparagraph 			{$\blacksquare$ \hspace{3pt}}
+
+		% 	----------------------------------------------------------------- section 페이지 나누기 설정
+			\let\stdsection\section
+			\renewcommand\section{\newpage\stdsection}
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	\titlespacing*{commandi} {left} {before-sep} {after-sep} [right-sep]		
+		% 	left
+		%	before-sep		:  수직 전 간격
+		% 	after-sep	 	:  수직으로 후 간격
+		%	right-sep
+
+			\titlespacing*{\section} 			{0pt}{1.0em}{1.0em}
+			\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\paragraph}			{0em}{1.5em}{1.0em}
+			\titlespacing*{\subparagraph}		{4em}{1.0em}{1.0em}
+	
+		%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}				{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}		{\newpage  \null \vskip 2cm}
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	toc 설정  - table of contents
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		%	--------------------------------------------------------------------------------------- 
+		% 	
+		% 	
+		% 	----------------------------------------------------------------  문서 기본 사항 설정 문단번호깊이
+			\setcounter{secnumdepth}{5} 		% 문단 번호 깊이
+			\setcounter{tocdepth}{0} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+%			\setcounter{tocdepth}{2} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+%			\setcounter{tocdepth}{-1} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+			%	-1 part
+			%	0	chapter
+			%	1	section
+			%	2	subsection
+			%	3	subsubsection
+			%	4	paragraph
+			%	5	subparagraph
+
+
+
+			\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	mini toc 설정
+		% 	
+		% 	
+		% 	--------------------------------------------------------- 장의 목차  minitoc package
+			\usepackage{minitoc}
+
+			\setcounter{minitocdepth}{4}    	%  Show until subsubsections in minitoc
+%			\setcounter{minitocdepth}{5}    	%  Show until subsubsections in minitoc
+%			\setlength{\mtcindent}{12pt} 	% default 24pt
+			\setlength{\mtcindent}{24pt} 	% default 24pt
+
+		% 	--------------------------------------------------------- part toc
+		%	\setcounter{parttocdepth}{2} 	%  default
+			\setcounter{parttocdepth}{0}
+		%	\setlength{\ptcindent}{0em}		%  default  목차 내용 들여 쓰기
+			\setlength{\ptcindent}{0em}         
+
+
+		% 	--------------------------------------------------------- section toc
+
+			\renewcommand{\ptcfont}{\normalsize\rm} 		%  default
+			\renewcommand{\ptcCfont}{\normalsize\bf} 	%  default
+			\renewcommand{\ptcSfont}{\normalsize\rm} 	%  default
+
+
+		%	=======================================================================================
+		% 	tocloft package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{tocloft}
+
+		% 	------------------------------------------ 목차의 내어쓰기 즉 왼쪽 마진 설정
+			\setlength{\cftsecindent}{2em}			%  section
+
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\setlength{\cftsecnumwidth}{2em}		%  section
+
+
+
+
+
+		%	=======================================================================================
+		% 	flowchart  package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{flowchart}
+			\usetikzlibrary{arrows}
+
+
+
+		%	=======================================================================================
+		% 	줄 간격 설정
+		% 	
+		% 	
+		% 	--------------------------------- 	줄간격 설정
+			\doublespace
+%			\onehalfspace
+%			\singlespace
+		
+		
+
+	% 	============================================================================== itemi Global setting
+
+	
+		%	-------------------------------------------------------------------------------
+		%		Vertical spacing
+		%	-------------------------------------------------------------------------------
+			\setlist[itemize]{topsep=0.0em}			% 상단의 여유치
+			\setlist[itemize]{partopsep=0.0em}			% 
+			\setlist[itemize]{parsep=0.0em}			% 
+%			\setlist[itemize]{itemsep=0.0em}			% 
+			\setlist[itemize]{noitemsep}				% 
+			
+		%	-------------------------------------------------------------------------------
+		%		Horizontal spacing
+		%	-------------------------------------------------------------------------------
+			\setlist[itemize]{labelwidth=1em}			%  라벨의 표시 폭
+			\setlist[itemize]{leftmargin=8em}			%  본문 까지의 왼쪽 여백  - 4em
+			\setlist[itemize]{labelsep=3em} 			%  본문에서 라벨까지의 거리 -  3em
+			\setlist[itemize]{rightmargin=0em}			% 오른쪽 여백  - 4em
+			\setlist[itemize]{itemindent=0em} 			% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+			\setlist[itemize]{listparindent=3em}		% 본문 드려쓰기 간격
+	
+	
+			\setlist[itemize]{ topsep=0.0em, 			%  상단의 여유치
+						partopsep=0.0em, 		%  
+						parsep=0.0em, 
+						itemsep=0.0em, 
+						labelwidth=1em, 
+						leftmargin=2.5em,
+						labelsep=2em,			%  본문에서 라벨 까지의 거리
+						rightmargin=0em,		% 오른쪽 여백  - 4em
+						itemindent=0em, 		% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+						listparindent=0em}		% 본문 드려쓰기 간격
+	
+%			\begin{itemize}
+	
+		%	-------------------------------------------------------------------------------
+		%		Label
+		%	-------------------------------------------------------------------------------
+			\renewcommand{\labelitemi}{$\bullet$}
+			\renewcommand{\labelitemii}{$\bullet$}
+%			\renewcommand{\labelitemii}{$\cdot$}
+			\renewcommand{\labelitemiii}{$\diamond$}
+			\renewcommand{\labelitemiv}{$\ast$}		
+	
+%			\renewcommand{\labelitemi}{$\blacksquare$}   	% 사각형 - 찬것
+%			\renewcommand\labelitemii{$\square$}		% 사각형 - 빈것	
+
+
+
+
+			\usepackage{caption}
+%			\captionsetup[table]{skip=10pt plus 0.01pt}
+			\captionsetup[table]{skip=04pt plus 0.01pt}
+			%\captionsetup{tableposition=above}
+			
+
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			\doparttoc			
+
+
+
+
+			\title{Pixlr}
+			\author{김대희}
+			\date{2019년 05월}
+			\maketitle
+
+
+			\tableofcontents 		% 목차 출력
+
+			\cleardoublepage
+			\listoffigures 			% 그림 목차 출력
+
+			\cleardoublepage
+			\listoftables 			% 표 목차 출력
+
+
+
+
+
+		\mdfdefinestyle	{con_specification} {
+						outerlinewidth		=1pt			,%
+						innerlinewidth		=2pt			,%
+						outerlinecolor		=blue!70!black	,%
+						innerlinecolor		=white 			,%
+						roundcorner			=4pt			,%
+						skipabove			=1em 			,%
+						skipbelow			=1em 			,%
+						leftmargin			=0em			,%
+						rightmargin			=0em			,%
+						innertopmargin		=2em 			,%
+						innerbottommargin 	=2em 			,%
+						innerleftmargin		=1em 			,%
+						innerrightmargin		=1em 			,%
+						backgroundcolor		=gray!4			,%
+						frametitlerule		=true 			,%
+						frametitlerulecolor	=white			,%
+						frametitlebackgroundcolor=black		,%
+						frametitleaboveskip=1em 			,%
+						frametitlebelowskip=1em 			,%
+						frametitlefontcolor=white 			,%
+						}
+
+
+
+
+
+	% ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== Part			pixlr
+%		\addtocontents{toc}{\protect\newpage}
+%		\part{Pixlr}
+%		\noptcrule
+%		\parttoc				
+
+
+
+
+%	================================================================== chapter
+%	\addtocontents{toc}{\protect\newpage}
+	\chapter{버전의 종류} 
+	\noptcrule
+	\newpage
+	\minitoc				
+
+
+	% -----------------------------------------------------------------------------
+	%
+	% ----------------------------------------------------------------------------- 
+		\section{버전의 종류}
+
+
+
+
+\begin{itemize}[					
+		topsep=0.0em,			
+		parsep=0.0em,			
+		itemsep=0em,			
+		leftmargin=		6	em,
+		labelwidth=3em,			
+		labelsep=3em			
+]					
+	\item	https://pixlr.com/editor/
+	\item	https://pixlr.com/x/
+\end{itemize}					
+
+	% -----------------------------------------------------------------------------
+	%
+	% ----------------------------------------------------------------------------- 
+		\section{pixlr editor}
+
+	% -----------------------------------------------------------------------------
+	%
+	% ----------------------------------------------------------------------------- 
+		\section{pixlr x}
+
+
+
+
+
+
+%	================================================================== chapter
+%	\addtocontents{toc}{\protect\newpage}
+	\chapter{	세팅	} 
+	\noptcrule
+	\newpage
+	\minitoc				
+
+
+	% -----------------------------------------------------------------------------
+	%
+	% ----------------------------------------------------------------------------- 
+		\section{한글의 사용}
+
+
+	% -----------------------------------------------------------------------------
+	%
+	% ----------------------------------------------------------------------------- 
+		\section{	세팅				}
+
+
+																		
+% ------------------------------------------------------------------------------ table 																		
+\begin{table} [h]																		
+\caption{ pixlr : Settings }																		
+\label{tab:title}																		
+\tabulinesep= 1.2 em																		
+% \tabulinesep= 0.0 em																		
+\begin{tabu} to 1.0\linewidth {																		
+	X [	r	,	1.00	]		% 01	내용										
+	X [	l	,	1.00	]		% 02	단축키										
+	X [	r	,	1.00	]		% 03	설명										
+%	X [	r	,	1.00	]		% 04	비고										
+%	X [	r	,	1.00	]		% 05	비고										
+%	X[ r, 1.0 ] % 06 통장			% 06	지혜													
+}																		
+\hline \hline																		
+			내용				&설명									&	비고	\\  \hline \hline
+			Show Guide				&									&		\\  \hline
+			Snap To Guide				&									&		\\  \hline
+			Always Show Transform				&									&		\\  \hline
+			Auto Select Layer				&									&		\\  \hline
+			Light UI Mode				&									&		\\  \hline
+			Keyboard Shortcuts				&									&		\\  \hline \hline 
+\end{tabu}																		
+\end{table}																		
+% ===== ===== ===== ===== ===== ===== ===== ===== .																		
+\clearpage																		
+% ===== ===== ===== ===== ===== ===== ===== ===== .																		
+
+
+
+
+%	================================================================== chapter 메뉴의구성
+%	\addtocontents{toc}{\protect\newpage}
+	\chapter{메뉴의 구성} 
+	\noptcrule
+	\newpage
+	\minitoc				
+
+
+	\chapter{	화면 구성	} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	화면 구성	}		
+
+
+	\chapter{메뉴 : 파일} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	파일	}		
+
+\section{	새 이미지		}									
+\section{	이미지열기		}									
+\section{	이미지 URL 열기		}									
+\section{	저장		}									
+\section{	인쇄		}									
+\section{	종료		}									
+\section{	로그인		}									
+\section{	등록		}									
+\section{	편집		}									
+
+
+					
+	\chapter{메뉴 : 편집} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	편집	}										
+\section{	입력 취소		}									
+\section{	다시 실행		}									
+\section{	자르기		}									
+\section{	복사		}									
+\section{	삭제		}									
+\section{	붙여넣기		}									
+\section{	자유 변형		}									
+\section{	자유 왜속		}									
+\section{	모두 선택		}									
+\section{	모두 선택 취소		}									
+\section{	반전 선택		}									
+\section{	select pixels		}									
+\section{	브러쉬 정의		}									
+
+
+	\chapter{메뉴 : 이미지} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	이미지	}										
+\section{	이지지 크기				}							
+\section{	캔버스 크기				}							
+\section{	캔버스를 180도 회전				}							
+\section{	캔버스를 시계방향으로 90도 회전				}							
+\section{	캔버스를 시계반대방향으로 90도 회전				}							
+\section{	캔버스를 수직으로 뒤집기				}							
+\section{	캔버스를 수평으로 뒤집기				}							
+\section{	오려내기				}							
+
+
+
+	\chapter{메뉴 : 레이어} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	레이어	}										
+\section{	새 레이어				}							
+\section{	레이어 복제				}							
+\section{	레이어 삭제				}							
+\section{	이미지를 레이어로 열기				}							
+\section{	이지지 URL을 레이어로 열기				}							
+\section{	아래 레이어어와 병합				}							
+\section{	보이는 레이어 병합				}							
+\section{	배경으로 이미지 병합				}							
+\section{	레이어를 위로 이동				}							
+\section{	레이어를 아래로 이동				}							
+\section{	레이어 스타일				}							
+\section{	레이어 래스터화				}							
+\section{	레이어 마스크 추가				}							
+\section{	레이어 마스크 삭제				}							
+\section{	레이어 마스크 적용				}							
+\section{	레이어를 180도 회전				}							
+\section{	레이어를 시계방향으로 90도 회전				}							
+\section{	레이어를 시계반대방향으로 90도 회전				}							
+\section{	레이어를 수직으로 뒤집기				}							
+\section{	레이어를 수평으로 뒤집기				}							
+
+
+
+
+	\chapter{메뉴 : 조정} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+	\section{	조정	}
+																			
+% ------------------------------------------------------------------------------ table 																			
+\begin{table} [h]																			
+\caption{ pixlr : 조정 }																			
+\label{tab:title}																			
+\tabulinesep= 0.5 em																			
+% \tabulinesep= 0.0 em																			
+\begin{tabu} to 1.0\linewidth {																			
+	X [	r	,	1.00	]			% 01	내용										
+	X [	r	,	1.00	]			% 02	단축키										
+	X [	r	,	1.00	]			% 02	단축키										
+	X [	r	,	1.00	]			% 03	설명										
+}																			
+\hline \hline																			
+			구분		&			&	내용								&	비고	\\  \hline \hline
+			 밝기 \& 명암대비 		&			&									&		\\  \hline
+			 색상 \& 채도 		&			&									&		\\  \hline
+			 Color balance 		&			&									&		\\  \hline
+			 Color vibrance 		&			&									&		\\  \hline
+			 레벨 		&			&									&		\\  \hline
+			 커브 		&			&									&		\\  \hline
+			 노출 		&			&									&		\\  \hline
+\hline																			
+			 자동 레벨 		&			&									&		\\  \hline
+\hline																			
+			 반전 		&			&									&		\\  \hline
+			 세피아 		&			&									&		\\  \hline
+			 과대노출 		&			&									&		\\  \hline
+			 채도 제거 		&			&									&		\\  \hline
+			 옛 사진 		&			&									&		\\  \hline
+			 크로스 프로세스 		&			&									&		\\  \hline
+			 임계치 		&			&									&		\\  \hline
+			 포스터화 		&			&									&		\\  \hline
+			 색 참조표 		&			&									&		\\  \hline
+\hline																			
+\end{tabu}																			
+\end{table}																			
+% ===== ===== ===== ===== ===== ===== ===== ===== .																			
+\clearpage																			
+% ===== ===== ===== ===== ===== ===== ===== ===== .																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+
+
+
+\section{	밝기 \& 명암대비				}							
+\section{	색상 \& 채도				}							
+\section{	Color balance				}							
+\section{	Color vibrance				}							
+\section{	레벨				}							
+\section{	커브				}							
+\section{	노출				}							
+\section{	자동 레벨				}							
+\section{	반전				}							
+\section{	세피아				}							
+\section{	과대노출				}							
+\section{	채도 제거				}							
+\section{	옛 사진				}							
+\section{	크로스 프로세스				}							
+\section{	임계치				}							
+\section{	포스터화				}							
+\section{	색 참조표				}							
+
+
+
+										
+	\chapter{메뉴 : 필터} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+	\section{	필터	}
+
+																		
+
+																			
+% ------------------------------------------------------------------------------ table 																			
+\begin{table} [h]																			
+\caption{ pixlr :  필터 }																			
+\label{tab:title}																			
+\tabulinesep= 0.3 em																			
+% \tabulinesep= 0.0 em																			
+\begin{tabu} to 1.0\linewidth {																			
+	X [	r	,	0.80	]			% 01	내용										
+	X [	r	,	0.80	]			% 02	단축키										
+	X [	r	,	1.80	]			% 02	단축키										
+	X [	r	,	0.200	]			% 03	설명										
+%	X [	r	,	1.00	]			% 04	비고										
+%	X [	r	,	1.00	]			% 05	비고										
+%	X[ r, 1.0 ] % 06 통장			% 06	지혜														
+}																			
+\hline \hline																			
+			구분		&			&	내용								&	비고	\\  \hline \hline
+			흐림		&	Blur		&									&		\\  \hline
+			 사각형 흐림효과 		&	Box blur		&									&		\\  \hline
+			 가우시안 흐림효과 		&	Gaussian blur		&									&		\\  \hline
+\hline																			
+			 선명 효과 		&	Sharpen		&선명하게 									&		\\  \hline
+			 인샵마스크 		&	Unsharp mask		&사진의 색조간의 경계 부분을 뚜렷하게 해서 선명하게 만들어 주는 역할 &		\\  \hline
+			 노이즈 제거 		&	Denoise		&									&		\\  \hline
+			 노이즈 		&	Noise		&									&		\\  \hline
+			 확산 		&	Diffuse		&광선 확산 필터 							&		\\  \hline
+			 스캔라인 		&	Scan lines		&									&		\\  \hline
+			 하프톤 		&	Half tone		&									&		\\  \hline
+			 픽셀화 		&	Pixelate		&									&		\\  \hline
+			 점묘화 		&	Pointnize		&									&		\\  \hline
+			 소용돌이 		&	Water swirl		&									&		\\  \hline
+			 극좌표 		&	Polar coordinates		&									&		\\  \hline
+			 칼레이도스코프 		&	Kaleidoscope		&									&		\\  \hline
+			 틸트 시프트 		&	Titt shift		&									&		\\  \hline
+\hline																			
+			 비네트 		&	Vignette		&									&		\\  \hline
+			 파스텔 		&	Pastels		&									&		\\  \hline
+			 글래머 글로우 		&	Galamiur glow		&									&		\\  \hline
+			 HDR 흉내 		&	Mimic HDR		&									&		\\  \hline
+			 희망 		&	Hope		&									&		\\  \hline
+			 아트 포스터 		&	Art poster		&									&		\\  \hline
+			 열지도 		&	Heat map		&									&		\\  \hline
+			 트리톤 		&	Tritone		&									&		\\  \hline
+			 Night vision 		&	Night vision		&									&		\\  \hline
+\hline																			
+			 영각 		&	Emboss		&									&		\\  \hline
+			 인간 		&	Engrave		&									&		\\  \hline
+			 모서리 찾기 		&	Find edges		&									&		\\  \hline
+\hline																			
+\end{tabu}																			
+\end{table}																			
+% ===== ===== ===== ===== ===== ===== ===== ===== .																			
+\clearpage																			
+% ===== ===== ===== ===== ===== ===== ===== ===== .																			
+																			
+																			
+
+																	
+																		
+																		
+
+
+\section{	흐림				}							
+\section{	사각형 흐림효과				}							
+\section{	가우시안 흐림효과				}							
+\section{	선명 효과				}							
+\section{	인샵마스크				}
+사진을 보정할 때 마지막으로 선명한 결과물을 얻기 위해 활용, 사진의 색조간의 경계 부분을 뚜렷하게 해서 선명하게 만들어 주는 역할 
+							
+\section{	노이즈 제거				}							
+\section{	노이즈 제거				}							
+\section{	확산				}							
+\section{	스캔라인				}							
+\section{	하프톤				}
+포토샵의 컬러하프톤 필터는 점차적으로 흐려지는 이미지와 사용을 하면 망점효과도 점점 작아지는 효과가 만들어집니다. 
+흐려지는 이미지는 부드러운 브러시를 이용하거나 그래디언트, 가우시안 블러를 이용하면 가능하게 됩니다. 
+또한 선택툴의 페더기능을 이용해도 같은 효과를 얻을 수 있습니다. 
+이번 글에서는 여러가지 다양한 하프톤효과와 알파채널과 선택툴의 페더기능을 이용해서 글자에 하프톤효과를 만드는 방법을 알아봅니다. 
+출처: https://martian36.com/725 [웹디자인 \& 포토샵]
+
+
+\section{	픽셀화				}					
+\section{	점묘화				}							
+\section{	소용돌이				}							
+\section{	극좌표				}							
+\section{	칼레이도스코프				}							
+\section{	틸트 시프트				}							
+\section{	비네트				}							
+\section{	파스텔				}							
+\section{	글래머 글로우				}							
+\section{	HDR 흉내				}							
+\section{	희망				}							
+\section{	아트 포스터				}							
+\section{	열지도				}							
+\section{	트리톤				}							
+\section{	Night vision				}							
+\section{	영각				}							
+\section{	인간				}							
+\section{	모서리 찾기				}							
+
+
+
+	\chapter{메뉴 : 보기} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	보기	}
+\section{	줌인				}							
+\section{	줌아웃				}							
+\section{	실제 픽셀				}							
+\section{	모두 보기				}							
+\section{	네비게이터				}							
+\section{	레이어				}							
+\section{	히스토리				}							
+\section{	도구 옵션				}							
+\section{	전체화면 모드				}							
+\section{	팔레트 위치 재설정				}							
+
+
+
+	\chapter{메뉴 : 언어} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	언어	}
+
+
+	\chapter{메뉴 : 도움말} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	도움말	}
+\section{	도움말				}							
+\section{	문의처				}							
+
+
+
+	\chapter{메뉴 : 글꼴} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	글꼴	}										
+\section{	무료 글꼴				}							
+\section{	프리미엄 글꼴				}							
+\section{	글꼴 번들				}							
+\section{	자신의 글꼴을 사용하는 방법				}							
+
+
+
+	\chapter{메뉴 : 공짜} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	공짜	}										
+\section{	Free 	Backgrounds			}							
+\section{	Pixlr X-Photo Editor Made Easy				}							
+\section{	LoveSVG - Free SVG Resources				}							
+\section{	Vectr - Free Vector Graphics Software				}							
+\section{	Free Images, Vectors, Footage \& Audio				}							
+
+
+
+%	================================================================== chapter 편집
+%	\addtocontents{toc}{\protect\newpage}
+	\chapter{편집} 
+	\noptcrule
+	\newpage
+	\minitoc				
+
+
+
+	\chapter{단축키} 
+	\minitoc
+
+% -----------------------------------------------------------------------------												
+	\section{	단축키				}
+																		
+% ------------------------------------------------------------------------------ table 																		
+\begin{table} [h]																		
+\caption{ pixlr : Keyboard Shortcuts }																		
+\label{tab:title}																		
+\tabulinesep= 0.4 em																		
+% \tabulinesep= 0.0 em																		
+\begin{tabu} to 1.0\linewidth {																		
+	X [	r	,	1.40	]		% 01	내용										
+	X [	l	,	1.00	]		% 02	단축키										
+	X [	r	,	1.00	]		% 03	설명										
+	X [	r	,	1.00	]		% 04	비고										
+%	X [	r	,	1.00	]		% 05	비고										
+%	X[ r, 1.0 ] % 06 통장			% 06	지혜													
+}																		
+\hline \hline																		
+			내용				&	단축 키				&	설명			&	비고	\\  \hline \hline
+			Save				&	Ctrl	+	S		&				&		\\  \hline
+			Close				&	Ctrl	+	Q		&				&		\\  \hline
+			Close Tool				&	ESC				&				&		\\  \hline
+			Delete Layer				&	DEL				&				&		\\  \hline \hline
+			Zoom 	In			&	Ctrl	+	+		&				&		\\  \hline
+			Zoom 	Out			&	Ctrl	+	-		&				&		\\  \hline
+			Zoom 	Fity			&	Ctrl	+	0		&				&		\\  \hline
+			Zoom 	1X			&	Ctrl	+	1		&				&		\\  \hline
+			Zoom 	Fill			&	Ctrl	+	2		&				&		\\  \hline
+			Zoom 	3X			&	Ctrl	+	3		&				&		\\  \hline \hline
+			Pan / Move				&	Spacebar				&				&		\\  \hline
+			Arrange				&	V				&				&		\\  \hline
+			Crop				&	C				&				&		\\  \hline
+			Cutout				&	K				&				&		\\  \hline
+			Adjust				&	A				&				&		\\  \hline
+			Filter				&	F				&				&		\\  \hline
+			Effect				&	ESC				&				&		\\  \hline
+			Retouch				&	R				&				&		\\  \hline
+			Draw				&	B				&				&		\\  \hline
+			Text				&	T				&				&		\\  \hline
+			Add	Element			&	O				&				&		\\  \hline
+			Add	Image			&	I				&				&		\\  \hline \hline 
+
+			Undo				&	Ctrl	+	Z		&				&		\\  \hline
+			Redo				&	Ctrl	+	Y		&				&		\\  \hline \hline
+
+			Move Layer		(position)		&					&				&		\\  \hline 
+			Up				&$\uparrow$			&				&		\\  \hline
+			Down			&$\downarrow$					&				&		\\  \hline
+			Left				&$\leftarrow$					&				&		\\  \hline
+			Right				&$\rightarrow$					&				&		\\  \hline \hline
+\end{tabu}																		
+\end{table}																		
+% ===== ===== ===== ===== ===== ===== ===== ===== .																		
+\clearpage																		
+% ===== ===== ===== ===== ===== ===== ===== ===== .																		
+
+
+
+
+
+
+
+	\chapter{이미지} 
+	\minitoc
+% -----------------------------------------------------------------------------												
+\section{	이미지				}							
+\section{	이미지 불러오기				}							
+\section{	이미지 저장하기				}							
+\section{	이미지 확대하기				}							
+\section{	이미지 축소하기				}							
+
+
+\section{	이미지 선택하기				}							
+\section{	이미지 해제하기				}							
+\section{	이미지 선택 툴				}							
+
+
+
+
+	\section{	색수차 현상				}							
+	\section{	비네팅 현상				}							
+	\section{	이미지 왜곡				}							
+
+
+
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
+
+% =================================================================================================== Part 혼화 재료
+
+% ========================================================================================= chapter
+
+%	-----------------------------------------------------------  section  
+
+	%	------------------------------------------------------------------------------  table
+
+			\begin{table} [h]
+	
+			\caption{잔 골재의 표준입도}  
+			\label{tab:title} 
+	
+			\begin{center}
+			\tabulinesep=0.4em
+			\begin{tabu} to 0.8\linewidth { X[r] X[l] X[c]  }
+			\tabucline [1pt,] {-}
+			체의 호칭 치수 (mm)		& 체를 통화한 것의 질량 백분율(\%) \\
+			\multicolumn{4}{c} {단위량} \\
+			\tabucline [0.1pt,] {-}
+			2.5	&100\\
+			1.2	& 99 $\sim$ 100 \\
+			0.6	& 60 $\sim$ 80 \\
+			0.3	& 20 $\sim$ 50 \\
+			0.15	&  5 $\sim$ 30 \\
+			\tabucline [0.1pt,] {-}
+			\end{tabu} 
+			\end{center}
+			\end{table}
+
+
+
+	%	------------------------------------------------------------------------------  문제
+
+		\clearpage
+		\begin{small}	
+		\begin{question}
+		레디 믹스트 콘크리트에서 \textbf{회수수}를 혼합수로 사용할 경우 주의할 사항 중 틀린것은 ?
+		\begin{enumerate}[label=\arabic*), topsep=0.0em, itemsep=-1.0em ]
+			\item [①] 고강도 콘크리트의 경우 회수수를 사용하여서는 안된다. 
+			\item [②] 슬러지수의 사용 시 \textbf{단위 슬러지 고형분}은 콘크리트 질량의 3\% 이하로 한다. 
+			\item [③] 회수수의 품질 시험 항목은 4가지로 염소 이온량, 시멘트 응결 시간의 차, 모르타르 압축강도의 비, 단위 슬러지 고형분율 이다. 
+			\item [④] 콘크리트를 배합할 때, 회수수 중에 함유된 슬러지 고형분은 물의 질량에는 포함되지 않는다. 
+		\end{enumerate}
+		\end{question}
+
+
+
+		\begin{solution}
+		해설
+		\end{solution}
+		\end{small}	
+		\hrulefill
+
+
+		%	----------------------------------------------------------------------------- 수식
+			\begin{equation}
+			\begin{aligned}
+			T_2 = T_1 - 0.15 ( T_1 - T_0 ) \times t
+			\end{aligned}
+			\end{equation}
+
+
+			\begin{description}[style=sameline, leftmargin=2cm, topsep=0.0em, itemsep=0.0em]
+			\item[$T_0$] 		주의의 온도(${}^\circ C$)
+			\item[$T_1$] 		비볐을때의 콘크리트 온도 (${}^\circ C$)
+			\item[$t$] 		비빈후 부터 타설이 끝났을때 까지의 시간 (h)
+			\end{description}
+
+
+			\begin{itemize}	 	[
+							topsep=0.0em, 
+							parsep=0.0em, 
+							itemsep=0em, 
+							leftmargin=12.0em, 
+							labelwidth=3em, 
+							labelsep=3em
+							] 
+			\item [] 1
+			\item [] 2	
+			\item [] 3	
+			\item [] 4	
+			\end{itemize}
+
+
+
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=12.0em, labelwidth=3em, labelsep=3em] 
+			\item [1.] 	따다 아사나
+			\item [2.] 	우드르바 하스타 아사나
+			\item [3.] 	웃따나 아사나
+			\item [4.] 	아르다 웃따나 아사나
+			\item [5.] 	차뚜랑가 단다 아사나
+			\item [6.] 	우르드바 우카 스바나 아사나
+			\item [7.] 	아도무카 스바나 아사나
+			\item [8.] 	아르다 웃따나 아사나
+			\item [9.] 	웃따나 아사나
+			\item [10.] 	우드르바 하스타 아사나
+			\item [11.] 	따다 아사나
+			\end{itemize}
+
+
+	\href{https://www.youtube.com/watch?v=SpqKCQZQBcc}{태양경배자세A}
+	\href{https://www.youtube.com/watch?v=CL3czAIUDFY}{태양경배자세A}
+
+
+													
+
